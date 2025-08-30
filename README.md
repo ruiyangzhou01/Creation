@@ -1,11 +1,11 @@
-# Cast Theme
+# Creation Theme
 
 <p>
-    <img src="https://img.shields.io/github/v/release/fentaniao/Cast?&color=blue&logo=hack-the-box)" />
+    <img src="https://img.shields.io/github/v/release/ruiyangzhou01/Creation?&color=blue&logo=hack-the-box)" />
     <img alt="LaTeX" src="https://img.shields.io/badge/-LaTeX-9f62a5?style=flat&logo=LaTeX&logoColor=white" />
 </p>
 
-[English Readme](https://github.com/Fentaniao/Cast/blob/main/README.md) · [中文文档](https://github.com/Fentaniao/Cast/blob/main/README_zh.md)
+[English Readme](https://github.com/ruiyangzhou01/Creation/blob/main/README.md) · [中文文档](https://github.com/ruiyangzhou01/Creation/blob/main/README_zh.md)
 
 A modern LaTeX Beamer Theme for academic report, thesis defense, and presentations.
 
@@ -23,7 +23,7 @@ A modern LaTeX Beamer Theme for academic report, thesis defense, and presentatio
 
 ## Install
 
-[GitHub releases page](https://github.com/Fentaniao/CppTrace/releases), click on `Assets` at the bottom to show the files available in the release and then click on the head file you want to download. Finally, include the head file in your project.
+[GitHub releases page](https://github.com/ruiyangzhou01/Creation/releases), click on `Assets` at the bottom to show the files available in the release and then click on the head file you want to download. Finally, include the head file in your project.
 
 ## Usage
 
@@ -38,10 +38,10 @@ First include the head file in your project by `#include "CppTrace.h"`, and then
 
 ## Contact
 
-Author: Fentaniao
+Author: ruiyangzhou01
 
 Email: [Fentaniao@gmail.com](mailto:Fentaniao@gmail.com)
 
 ## License
 
-[GPL-3.0 License](https://github.com/Fentaniao/Cast/blob/main/LICENSE) © Fentaniao
+[GPL-3.0 License](https://github.com/ruiyangzhou01/Creation/blob/main/LICENSE) © ruiyangzhou01
