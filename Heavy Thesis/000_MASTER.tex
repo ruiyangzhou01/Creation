@@ -1,0 +1,69 @@
+\def\allfiles{}%允许单文件编译
+\input{00_Prefix}%前缀
+%主文件开始
+
+
+\begin{document}
+
+{\kaishu
+%处理封面
+% Remove the author and date fields and the space associated with them
+% from the definition of maketitle!
+\makeatletter
+\renewcommand{\@maketitle}{
+	\newpage
+	\null
+	\vskip 2em%
+	\begin{center}%
+		{\LARGE \@title \par}%
+	\end{center}%
+	\par} \makeatother
+
+\maketitle
+
+
+
+
+%This template Powered by Ruiyang Zhou.
+%！警告！
+%提交修改时务必删去或忽略掉LaTeX编译所产生的其他文件，避免推送和拉取时出现冲突！
+
+%说明1
+%先编译主文档，然后再修改和编译分文档时会自动出现完整内容，无需再次编译主文档。这里是利用了TexStuio自动识别主文档的机制。
+%说明2
+%在TexStuio中的选项-主文档设置-将当前文档设置为主文档，可以只编译该分文档。此法适用于主文档因内容过多而编译时间过长的时候。
+%说明3
+%TeX文件的命名由三部分组成：编号_英文名[序号]
+%编号中，00单列；0是摘要；1，2，3……代表该文件在论文中的次序
+
+
+%Part1:TeX文件
+%00_MASTER是主文档，管理封面，并汇总分文件的代码输出LaTeX结果
+%00_prefix是各个文档的前缀，负责管理package和导言区
+%00_template是分文件模板
+
+\input{0_Abstract}%摘要
+\input{1_ProblemRestate}%问题重述
+\input{2_ProblemAnalysis}%问题分析
+\input{3_ModelAssumption}%模型假设
+\input{4_Symbol}%符号说明
+
+%模型的建立与求解
+\input{5_Problem1}%问题一的建模与分析
+\input{5_Problem2}%问题二的建模与分析
+\input{5_Problem3}%问题三的建模与分析
+%\input{5_Problem4}%问题四的建模与分析
+
+\input{6_ModelEvaluation}%模型评价
+
+%结尾部分
+\input{7_Reference}%参考文献
+\input{8_Appendix}%代码或数据
+
+
+%Part2:figure文件夹
+%存放LaTeX中需要使用的图片
+
+
+}
+\end{document}

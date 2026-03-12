@@ -1,0 +1,36 @@
+\ifx\allfiles\undefined
+\input{00_Prefix}
+\begin{document}
+\else
+\fi
+%分文件开始
+
+
+%参考文献
+\begin{thebibliography}{99}
+	%在没有原样抄写的情况下，网站中的“#”、“_”改成“\#”、“\_”，前面加一个反斜杠
+	%现已有原样抄写的环境下，可以直接将链接放入
+
+	%开始：参考文献
+	\bibitem{ref1} \verb|司守奎、孙兆亮，《数学建模算法与应用》（第二版）[M]，国防工业出版社，2016。|
+	\bibitem{ref2} \verb|姜启源，《数学模型》[M]，高等教育出版社，1993。|
+	%\bibitem{ref3} \verb|曹明，预测评价指标RMSE、MSE、MAE、MAPE、SMAPE，https://www.cnblogs.com/think90/articles/11786016.html，2020年9月12日。|
+	%\bibitem{ref4} \verb|easyAI，决策树 – Decision tree，https://easyai.tech/ai-definition/decision-tree/，2020年09月12日。|
+	\bibitem{ref3} \verb|新浪财经，新冠肺炎疫情对若干行业的影响分析[OL]，https://finance.sina.com.cn/review/jcgc/2020-02-08/doc-iimxyqvz1258307.shtml，2020年9月12日。|
+
+	%\bibitem{ref4} \verb||
+	%\bibitem{ref5} \verb||
+	%\bibitem{ref6} \verb||
+
+	%结束：参考文献
+\end{thebibliography}
+\addcontentsline{toc}{section}{参考文献}%将“参考文献”字样加入目录中
+
+
+\newpage
+
+
+%分文件结束
+\ifx\allfiles\undefined
+\end{document}
+\fi

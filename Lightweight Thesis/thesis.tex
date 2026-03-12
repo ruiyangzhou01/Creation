@@ -1,0 +1,77 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% !TeX spellcheck = zh_cn
+
+\documentclass[uft8]{lightweight-thesis}
+
+%-----------------------------------------------------------------------
+
+
+\begin{document}
+	\frontmatter
+
+	\title{%
+		流行病动力学研究中的\\[12pt]
+		计算机算法基本原理%
+	}{%
+		The application of cloud computing\\[12pt]
+		in scientific research
+	}
+
+	\author{周锐阳}{Ruiyang Zhou}
+
+	\coursename{算法分析导论与实践挑战}{NN Theory and Application}
+	\advisor{吴磊教授}{Dr. Shengjian Lai}
+	\school{基础与前沿研究院}{Institute of Fundamental and Frontier Science, University of Electronic Science and Technology of China}
+	\major{计算机科学与技术}{Computer Science and Technology}
+	\studentnumber{202321210211}
+
+	\date{}
+
+	\maketitle
+
+
+	% abstract
+	\input{components/Abstract_CN}
+	\input{components/Abstract_EN}
+
+
+	% table of contents
+	\tableofcontents
+
+	\mainmatter
+
+	% thesis contents
+	\input{components/Chapter_1}
+	\input{components/Chapter_2}
+	\input{components/Chapter_3}
+	\input{components/Chapter_4}
+	% \input{components/Chapter_5}
+
+	% misc
+	\input{components/Discussion}
+	\input{components/Innovation}
+	\input{components/Conclusion}
+	\input{components/Acknowledgement}
+
+	\begin{references}
+		\bibliographystyle{thuthesis-bachelor}
+		\bibliography{refs}
+	\end{references}
+
+	% appendix
+	% \input{components/Appendix}
+
+	% \begingroup
+	% \renewcommand{\chaptertitlename}{}
+	% \addcontentsline{toc}{chapter}{翻译}
+	% \includepdf[pages=-,fitpaper]{../out/translation.pdf}
+	% \endgroup
+
+	% \begingroup
+	% \renewcommand{\chaptertitlename}{}
+	% \addcontentsline{toc}{chapter}{原文}
+	% \includepdf[pages=-,fitpaper]{../out/origin.pdf}
+	% \endgroup
+
+\end{document}

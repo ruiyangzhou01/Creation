@@ -1,0 +1,107 @@
+\def\allfiles{}%允许单文件编译
+\input{Prefix}%前缀
+%主文件开始
+
+
+\begin{document}
+%导言区
+\title[中国大学生物理学术竞赛]{中国大学生物理学术竞赛介绍}
+\subtitle{An Introduction to CUPT}
+\author[Ruiyang Zhou]{周锐阳 \\ ruiyangzhou@outlook.com}
+\institute[FZU]{物理与信息工程学院 \ \ 福州大学}
+\date{2020 年 9 月 22 日}
+
+
+%封面
+\begin{frame}
+	\titlepage
+\end{frame}
+
+
+%目录
+\begin{frame}{目录}
+	\tableofcontents
+\end{frame}
+
+
+%正文
+\section{Draw with TeX}
+\begin{frame}{Normal Distribution}
+\begin{tikzpicture}
+		\begin{axis}[
+		legend pos=outer north east,
+		axis lines=left,
+		xlabel={$x$},
+		ylabel={$y$},
+		]
+\drawfun{green}{\normalfun{1}}
+\drawfun{red}{\normalfun{2}}
+\drawfun{blue}{\normalfun{3}}
+\drawfun{orange}{\normalfun{4}}
+\legend{$\normalfun{1}$,$\normalfun{2}$,$\normalfun{3}$,$\normalfun{4}$}
+	\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\begin{tikzpicture}
+	\begin{axis}[
+		hide axis,
+		colormap/cool,
+		]
+		\addplot3[
+		mesh,
+		samples=75,
+		domain=-25:25,
+		]
+		{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+		\legend{$\frac{sin(r)}{r}$}
+	\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{第二届FZUer的CUPT战绩}
+
+\begin{tikzpicture}
+	\newcommand{\f}{sin(deg(x))}
+	\newcommand{\g}{cos(deg(x))}
+\begin{axis}[
+	legend pos=outer north east,
+	axis lines=left,
+	xlabel={$x$},
+	ylabel={$y$},
+	]
+	
+	\addplot[
+	domain=-20:20,
+	samples=200,
+	color=green,
+	]
+	{\f};
+	
+		\addplot[
+	domain=-20:20,
+	samples=100,
+	color=red,
+	]
+	{\g};
+	\legend{$\f$,$\g$}
+\end{axis}
+\end{tikzpicture}
+
+
+
+
+
+\end{frame}
+
+
+\begin{frame}
+
+	\begin{center}
+		\Huge{感谢聆听！}
+	\end{center}
+\end{frame}
+
+
+\end{document}

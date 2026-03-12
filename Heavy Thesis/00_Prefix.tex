@@ -1,0 +1,79 @@
+%生成目录超链接，使用UTF8字符集
+\documentclass[12pt,UTF8]{ctexart}
+
+
+\usepackage{mathtools}%花括号括起的公式
+\usepackage{enumerate}%列表
+\usepackage{graphicx}%表格
+\usepackage[table]{xcolor}%彩色表格
+\usepackage{booktabs}%调整表格行高
+
+
+\renewcommand\tabcolsep{50pt}
+\renewcommand\arraystretch{2}
+
+%文本框
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,vignette,raster,listings,listingsutf8,theorems, breakable,magazine,fitting}
+
+%页面设置
+\usepackage{geometry}%设置页面
+\usepackage{setspace}%设置局部行距
+
+\usepackage{ctex}
+\usepackage{CJK}
+
+%图像处理
+\usepackage{graphicx}
+\usepackage{float}%允许浮动
+\usepackage{caption}%设置标题
+\usepackage{graphicx, subfig}
+
+%附录
+\usepackage[toc,page]{appendix}
+
+%导言区
+\title{中小微企业的信贷决策}
+
+%不要页眉
+\pagestyle{plain}
+\bibliographystyle{plain}
+
+\geometry{a4paper}%将纸张设置为A4大小
+
+%修改文档结构层次的名称
+\usepackage{titlesec}%chapter1修改为一
+\titleformat{\part}{\centering\Huge\bfseries}{\thepart}{1em}{}
+\renewcommand\thepart{\chinese{part}}
+
+%subsubsubsection的使用
+%\usepackage{titlesec}
+%\titleclass{\subsubsubsection}{straight}[\subsection]
+%
+%\newcounter{subsubsubsection}[subsubsection]
+%\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+%\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}}
+%
+%\titleformat{\subsubsubsection}
+%{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+%\titlespacing*{\subsubsubsection}
+%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%
+%\makeatletter
+%\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+%	{3.25ex \@plus1ex \@minus.2ex}%
+%	{-1em}%
+%	{\normalfont\normalsize\bfseries}}
+%\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+%	{3.25ex \@plus1ex \@minus .2ex}%
+%	{-1em}%
+%	{\normalfont\normalsize\bfseries}}
+%\def\toclevel@subsubsubsection{4}
+%\def\toclevel@paragraph{5}
+%\def\toclevel@paragraph{6}
+%\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+%\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+%\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+%\makeatother
+%
+%\setcounter{secnumdepth}{4}
