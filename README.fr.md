@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [Deutsch](README.de.md) | [Español](README.es.md) | [Français](README.fr.md)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![Made with LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-008080.svg)](https://www.latex-project.org/)
 
 Une collection moderne de themes LaTeX legers pour livres, posters, diapositives et theses.
@@ -63,18 +63,18 @@ latexmk -xelatex -interaction=nonstopmode -synctex=1 Book_EN.tex
 
 | Modele | Commande |
 | --- | --- |
-| Book | `cd "Lightweight Book" && latexmk -xelatex Book_EN.tex` |
-| Poster | `cd "Lightweight Poster" && latexmk -xelatex Poster_EN.tex` |
-| Slides | `cd "Lightweight Slides" && latexmk -xelatex Slides_EN.tex` |
-| Thesis | `cd "Lightweight Thesis" && latexmk -xelatex Thesis_CN.tex` |
+| Book | `cd "Lightweight Book"; latexmk -xelatex Book_EN.tex` |
+| Poster | `cd "Lightweight Poster"; latexmk -xelatex Poster_EN.tex` |
+| Slides | `cd "Lightweight Slides"; latexmk -xelatex Slides_EN.tex` |
+| Thesis | `cd "Lightweight Thesis"; latexmk -xelatex Thesis_CN.tex` |
 
 Si `latexmk` n'est pas disponible, utilisez la sequence manuelle :
 
 ```bash
-xelatex <main-file>.tex
-bibtex <main-file>
-xelatex <main-file>.tex
-xelatex <main-file>.tex
+xelatex MAIN_FILE.tex
+bibtex MAIN_FILE
+xelatex MAIN_FILE.tex
+xelatex MAIN_FILE.tex
 ```
 
 ## Structure du projet
@@ -163,4 +163,4 @@ Si ce depot vous aide en recherche ou en enseignement, vous pouvez le citer ains
 
 ## Licence
 
-Ce projet est distribue sous licence MIT. Voir `LICENSE` pour les details.
+Ce projet est distribue sous licence GNU General Public License v3.0 (GPL-3.0). Voir `LICENSE` pour les details.

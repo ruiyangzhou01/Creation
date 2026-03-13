@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [Deutsch](README.de.md) | [Español](README.es.md) | [Français](README.fr.md)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![Made with LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-008080.svg)](https://www.latex-project.org/)
 
 Eine moderne Sammlung leichtgewichtiger LaTeX-Themen fur Bucher, Poster, Folien und Abschlussarbeiten.
@@ -63,18 +63,18 @@ latexmk -xelatex -interaction=nonstopmode -synctex=1 Book_EN.tex
 
 | Vorlage | Befehl |
 | --- | --- |
-| Book | `cd "Lightweight Book" && latexmk -xelatex Book_EN.tex` |
-| Poster | `cd "Lightweight Poster" && latexmk -xelatex Poster_EN.tex` |
-| Slides | `cd "Lightweight Slides" && latexmk -xelatex Slides_EN.tex` |
-| Thesis | `cd "Lightweight Thesis" && latexmk -xelatex Thesis_CN.tex` |
+| Book | `cd "Lightweight Book"; latexmk -xelatex Book_EN.tex` |
+| Poster | `cd "Lightweight Poster"; latexmk -xelatex Poster_EN.tex` |
+| Slides | `cd "Lightweight Slides"; latexmk -xelatex Slides_EN.tex` |
+| Thesis | `cd "Lightweight Thesis"; latexmk -xelatex Thesis_CN.tex` |
 
 Wenn `latexmk` nicht verfugbar ist, manuell kompilieren:
 
 ```bash
-xelatex <main-file>.tex
-bibtex <main-file>
-xelatex <main-file>.tex
-xelatex <main-file>.tex
+xelatex MAIN_FILE.tex
+bibtex MAIN_FILE
+xelatex MAIN_FILE.tex
+xelatex MAIN_FILE.tex
 ```
 
 ## Projektstruktur
@@ -163,4 +163,4 @@ Wenn dieses Repository fur Forschung oder Lehre hilfreich ist, kannst du es so z
 
 ## Lizenz
 
-Dieses Projekt steht unter der MIT-Lizenz. Details in `LICENSE`.
+Dieses Projekt steht unter der GNU General Public License v3.0 (GPL-3.0). Details in `LICENSE`.

@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [Deutsch](README.de.md) | [Español](README.es.md) | [Français](README.fr.md)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![Made with LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-008080.svg)](https://www.latex-project.org/)
 
 一套面向学术与技术写作的现代、轻量级 LaTeX 主题模板，覆盖书籍、海报、幻灯片与论文场景。
@@ -63,18 +63,18 @@ latexmk -xelatex -interaction=nonstopmode -synctex=1 Book_EN.tex
 
 | 模板 | 命令 |
 | --- | --- |
-| Book | `cd "Lightweight Book" && latexmk -xelatex Book_EN.tex` |
-| Poster | `cd "Lightweight Poster" && latexmk -xelatex Poster_EN.tex` |
-| Slides | `cd "Lightweight Slides" && latexmk -xelatex Slides_EN.tex` |
-| Thesis | `cd "Lightweight Thesis" && latexmk -xelatex Thesis_CN.tex` |
+| Book | `cd "Lightweight Book"; latexmk -xelatex Book_EN.tex` |
+| Poster | `cd "Lightweight Poster"; latexmk -xelatex Poster_EN.tex` |
+| Slides | `cd "Lightweight Slides"; latexmk -xelatex Slides_EN.tex` |
+| Thesis | `cd "Lightweight Thesis"; latexmk -xelatex Thesis_CN.tex` |
 
 如果未安装 `latexmk`，可使用手动编译流程：
 
 ```bash
-xelatex <main-file>.tex
-bibtex <main-file>
-xelatex <main-file>.tex
-xelatex <main-file>.tex
+xelatex MAIN_FILE.tex
+bibtex MAIN_FILE
+xelatex MAIN_FILE.tex
+xelatex MAIN_FILE.tex
 ```
 
 ## 项目结构
@@ -163,4 +163,4 @@ Lightweight-LaTeX/
 
 ## 许可证
 
-本项目采用 MIT License。详情见 `LICENSE`。
+本项目采用 GNU General Public License v3.0（GPL-3.0）许可。详情见 `LICENSE`。
