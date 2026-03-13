@@ -1,0 +1,195 @@
+%----------------------------------------------------------------------------------------
+%	CLASS, PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{lightweight-poster}
+
+%----------------------------------------------------------------------------------------
+%	POSTER INFORMATION
+%----------------------------------------------------------------------------------------
+
+\postertitle{%
+	Enhanced Image Classification via Hybridizing \\
+	Quantum Dynamics with Classical Neural Networks
+} % The poster title, can be split across multiple lines manually with \\
+
+% Contributor/author names, can be split across multiple lines manually with \\
+% Add affiliations using the \affiliation{} command
+\posterauthors{%
+	Ruiyang Zhou\affiliation{1,2},
+	Saubhik Sarkar\affiliation{1,2},
+	Sougato Bose\affiliation{3},
+	Abolfazl Bayat\affiliation{1,2,4}\cor
+}
+
+% Affiliation institutions, the first parameter is the affiliation number (matching the author list) and the second is the institution
+\affiliations{
+	\affiliationentry{1}{%
+		Institute of Fundamental and Frontier Sciences,
+		University of Electronic Science and Technology of China,
+		Chengdu 611731,
+		China.
+	}
+	\affiliationentry{2}{%
+		Key Laboratory of Quantum Physics and Photonic Quantum Information,
+		Ministry of Education,
+		University of Electronic Science and Technology of China,
+		Chengdu 611731,
+		China.
+	}
+	\affiliationentry{3}{%
+		Department of Physics and Astronomy,
+		University College London,
+		Gower Street,
+		WC1E 6BT London,
+		United Kingdom.
+	}
+	\affiliationentry{4}{%
+		Shimmer Center,
+		Tianfu Jiangxi Laboratory,
+		Chengdu 641419,
+		China.
+	}
+}
+
+% Poster contact information
+\emails{%
+	\emailentry{rz}{Ruiyang Zhou}{ruiyangzhou@outlook.com}, \\
+	\emailentry{ss}{Saubhik Sarkar}{saubhik.sarkar@uestc.edu.cn}, \\
+	% \emailentry{sb}{Sougato Bose}{s.bose@ucl.ac.uk}, \\
+	\emailentry{ab}{Abolfazl Bayat}{abolfazl.bayat@uestc.edu.cn}.
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+	\maketitle[width=1\linewidth] % Output the title section, automatically populated using the information in the POSTER INFORMATION block above
+
+	\begin{columns}
+		%----------------------------------------------------------------------------------------
+		%	COLUMN SWITCH
+		%----------------------------------------------------------------------------------------
+		\column{0.3333} % Switch to the next column
+
+		\block{Introduction}{%
+			\begin{itemize}
+				\item \textbf{Images classification:} 4 datasets about remote sensing, medical imaging, handwritten digits, and fashion.
+				\item \textbf{A hybrid protocol:} A simple classical neural network + Hamiltonian time evolution of a spin chain.
+				\item \textbf{Non-equilibrium dynamics:} Few qubits significantly enhance the classification accuracy.
+			\end{itemize}
+
+			\subblock{Key quantum dynamics}{%
+				Identical initial states + Hamiltonian time evolution under different parameters = distinguishable final states.
+				\begin{tikzfigure}
+					\includegraphics[width=1\linewidth]{Fig1}
+				\end{tikzfigure}
+			}
+		}
+
+		\block{Methods}{%
+			\subblock{Datasets}{%
+				\begin{tikzfigure}
+					\includegraphics[width=1\linewidth]{Samples}
+				\end{tikzfigure}
+			}
+
+			\subblock{Hamiltonian for $N_q$ qubits}{%
+				\begin{equation*}
+					H = J \sum_{j=1}^{N_q-1} \sigma^x_{j} \sigma^x_{j+1} + \sum_{j=1}^{N_q} h_j \sigma^z_{j} \text{,}
+				\end{equation*}
+			}
+
+			\subblock{Observables for $N_c$ classes}{%
+				\vspace*{-1em}
+				\begin{equation*}
+					O_{\alpha} = \dfrac{1}{N_S} \sum_{k=1}^{N_S} \ket{\Psi_{k}^{(\alpha)} (t)}\bra{\Psi_{k}^{(\alpha)} (t)},
+					\alpha = 1, 2, \ldots, N_c.
+				\end{equation*}
+			}
+
+			\subblock{Two kinds of measurement}{%
+				1. \textbf{Exact expectation:}
+				$ \langle O_{\alpha}\rangle = \bra{\Psi}O_{\alpha}\ket{\Psi} $.
+
+				2. \textbf{Shadow tomography:}
+				$ \langle O_{\alpha}\rangle = \frac{1}{M} \sum_{m=1}^{M} \text{Tr} \Big(\rho^{(m)}O_{\alpha}\Big)$.
+			}
+
+			\subblock{Loss function}{%
+				\begin{equation*}
+					\mathcal{C} {=} \frac{1}{N_{\textrm trn}} \sum_{\{ \mathbf{x_1}, \mathbf{x_2} \}} \Big||\braket{\Psi_1(t) | \Psi_2(t)}|^2 - \delta{y_1, y_2} \Big|.
+				\end{equation*}
+			}
+
+			\blockfill{pos1} % Align the block with the bottom of the column
+		}
+
+		%----------------------------------------------------------------------------------------
+		%	COLUMN SWITCH
+		%----------------------------------------------------------------------------------------
+		\column{0.6666} % Switch to the next column
+
+		\block{Protocol}{%
+			\vspace*{-2em}
+			\begin{tikzfigure}
+				\includegraphics[width=1\linewidth]{protocol}
+			\end{tikzfigure}
+			\vspace*{-1.5em}
+		}
+
+		\begin{subcolumns}
+			%----------------------------------------------------------------------------------------
+			%	COLUMN SWITCH
+			%----------------------------------------------------------------------------------------
+			\subcolumn{0.5} % Switch to the next column
+			\block{The Role of Quantum Dynamics}{%
+
+				\subblock{Test classification accuracy comparison}{%
+					\begin{tikzfigure}
+						\includegraphics[width=0.9\linewidth]{comparison_acc2}
+					\end{tikzfigure}
+				}
+
+				\subblock{Distinguishability comparison by the PCA}{%
+					\begin{tikzfigure}
+						\includegraphics[width=0.9\linewidth]{pca3d_poster}
+					\end{tikzfigure}
+				}
+
+				\blockfill{pos2} % Align the block with the bottom of the column
+			}
+
+			%----------------------------------------------------------------------------------------
+			%	COLUMN SWITCH
+			%----------------------------------------------------------------------------------------
+			\subcolumn{0.5} % Switch to the next column
+
+			\block{Parameter Study}{%
+				\subblock{Impact of No. sample for measurement}{%
+					\begin{tikzfigure}
+						\includegraphics[width=1\linewidth]{acc2_observables}
+					\end{tikzfigure}
+				}
+
+				\subblock{Impact of evolution time \& No. qubits}{%
+					\begin{tikzfigure}
+						\includegraphics[width=1\linewidth]{acc2_time_qubits}
+					\end{tikzfigure}
+				}
+				\subblock{Impact of No. hidden layers \& No. train samples}{%
+					\begin{tikzfigure}
+						\includegraphics[width=1\linewidth]{acc2_hidden_train}
+					\end{tikzfigure}
+				}
+			}
+
+			\block{Contact}{%
+				\emails
+
+				\blockfill{pos3} % Align the block with the bottom of the column
+			}
+
+		\end{subcolumns}
+	\end{columns}
+\end{document}

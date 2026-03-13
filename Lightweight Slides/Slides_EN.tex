@@ -1,0 +1,85 @@
+% !TeX encoding = UTF-8
+% !TeX program = pdflatex
+% !TeX spellcheck = en_us
+
+\documentclass[uft8,aspectratio=169]{lightweight-slides}
+
+%-----------------------------------------------------------------------
+
+\title{%
+    Demo Presentation:\\
+    Lightweight Slides Class
+}
+\author[Author Name]{%
+    Author Name\\
+    \texttt{author@example.com}%
+}
+\institute[
+    Institution
+]{%
+    University of Example%
+}
+\date{%
+    \today%
+}
+
+\begin{document}
+    \nobibliography*
+
+    \frame{\titlepage}
+
+    \begin{frame}
+        \frametitle{Table of contents}
+        \tableofcontents
+    \end{frame}
+
+    \section{Introduction}
+    \label{sec:introduction}
+
+    \begin{frame}
+        \frametitle{Overview}
+        \begin{block}{Blocks and Environments}
+            This is a standard block in the lightweight-slides class. It demonstrates the visual hierarchy.
+            \begin{itemize}
+                \item Bullet point 1
+                \item Bullet point 2
+            \end{itemize}
+        \end{block}
+        
+        \begin{alertblock}{Alert Block}
+            This is an alert block used to emphasize important information.
+        \end{alertblock}
+    \end{frame}
+
+    \section{Visuals and Features}
+    \label{sec:visuals}
+
+    \begin{frame}
+        \frametitle{Mathematical Equations}
+        The lightweight-slides class supports standard LaTeX math environments:
+        \begin{equation*}
+            E = mc^2
+        \end{equation*}
+        \begin{equation*}
+            \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+        \end{equation*}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Tables and Figures}
+        \begin{table}[!ht]
+            \centering
+            \caption{A demo table inside the slides.}
+            \begin{tabular}{l c r}
+                \hline
+                \textbf{Item} & \textbf{Value} & \textbf{Metric} \\
+                \hline
+                Alpha & 10 & 0.8 \\
+                Beta  & 20 & 0.9 \\
+                Gamma & 30 & 0.95 \\
+                \hline
+            \end{tabular}
+        \end{table}
+    \end{frame}
+
+\end{document}
