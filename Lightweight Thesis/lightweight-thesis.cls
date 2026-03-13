@@ -16,10 +16,10 @@
 
 % 中文字体
 \RequirePackage{xeCJK}
-\setCJKmainfont{思源宋体}
-\setCJKsansfont{思源黑体 CN}
-\setCJKmonofont{Source Code Pro}
-\setCJKfamilyfont{boldsong}{Source Han Serif CN Heavy}
+\setCJKmainfont{SimSun}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{FangSong}
+\setCJKfamilyfont{boldsong}{SimSun}
 
 % 西文字体
 \RequirePackage{fontspec}
@@ -30,9 +30,9 @@
 % Math font
 \RequirePackage{mathtools}
 \RequirePackage{unicode-math}
-\setmathfont{Latin Modern Math}
-\setmathfont[range={\mathcal,\mathbfcal},StylisticSet=1]{XITS Math}
-\setmathfont[range=\mathscr]{XITS Math}
+%\setmathfont{Latin Modern Math}
+%\setmathfont[range={\mathcal,\mathbfcal},StylisticSet=1]{XITS Math}
+%\setmathfont[range=\mathscr]{XITS Math}
 
 
 %-----------------------------------------------------------------------
@@ -179,9 +179,9 @@
 	\pdfbookmark{封面}{cover}
 
 	\begin{center}
-		\fontsize{22pt}{22pt}\selectfont 电\hspace{0.5em}子\hspace{0.5em}科\hspace{0.5em}技\hspace{0.5em}大\hspace{0.5em}学 \\[7bp]
+		\fontsize{22pt}{22pt}\selectfont X\hspace{0.5em}X\hspace{0.5em}X\hspace{0.5em}X\hspace{0.5em}大\hspace{0.5em}学 \\[7bp]
 
-		\fontsize{12pt}{12pt}\selectfont UNIVERSITY OF ELECTRONIC SCIENCE AND TECHNOLOGY OF CHINA \\[36bp]
+		\fontsize{12pt}{12pt}\selectfont UNIVERSITY UNIVERSITY UNIVERSITY UNIVERSITY \\[36bp]
 
 		\includegraphics[width=180bp]{logo} \\[40bp]
 
