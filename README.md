@@ -2,86 +2,164 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [Deutsch](README.de.md) | [Español](README.es.md) | [Français](README.fr.md)
 
-Minimal, elegant, and practical LaTeX templates for academic and technical writing.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Made with LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-008080.svg)](https://www.latex-project.org/)
 
-This repository provides four lightweight themes you can use as a starting point for books, posters, slides, and theses.
+A modern collection of lightweight LaTeX themes for books, posters, slides, and theses.
 
-## Themes Included
+This repository focuses on practical academic writing workflows: clean typography, easy customization, and project structures that are simple to maintain.
 
-| Theme | Purpose | Main file |
-| --- | --- | --- |
-| Lightweight Book | Book-style documents and long-form writing | `Lightweight Book/Book_EN.tex` |
-| Lightweight Poster | Conference and research posters | `Lightweight Poster/Poster_EN.tex` |
-| Lightweight Slides | Presentation slides | `Lightweight Slides/Slides_EN.tex` |
-| Lightweight Thesis | Thesis and dissertation writing | `Lightweight Thesis/Thesis_CN.tex` |
+## Table of Contents
 
-## Why This Collection
+- [Highlights](#highlights)
+- [Templates](#templates)
+- [Quick Start](#quick-start)
+- [Build Commands](#build-commands)
+- [Project Structure](#project-structure)
+- [Customization Guide](#customization-guide)
+- [Troubleshooting](#troubleshooting)
+- [FAQ](#faq)
+- [Contributing](#contributing)
+- [Citation](#citation)
+- [License](#license)
 
-- Clean layouts focused on readability.
-- Lightweight class files with straightforward customization.
-- Organized structure for fonts, references, and figures.
-- Practical defaults for academic workflows.
+## Highlights
+
+- Purpose-built templates for common academic scenarios.
+- Lightweight class files with clear entry points for customization.
+- Separate assets and bibliography in each template folder.
+- Ready for XeLaTeX-first workflows with modern font support.
+
+## Templates
+
+| Template | Best for | Entry file | Class file |
+| --- | --- | --- | --- |
+| Lightweight Book | Monographs, lecture notes, manuals | `Lightweight Book/Book_EN.tex` | `Lightweight Book/lightweightbook.cls` |
+| Lightweight Poster | Conference and lab posters | `Lightweight Poster/Poster_EN.tex` | `Lightweight Poster/lightweight-poster.cls` |
+| Lightweight Slides | Talks, thesis defense, course slides | `Lightweight Slides/Slides_EN.tex` | `Lightweight Slides/lightweight-slides.cls` |
+| Lightweight Thesis | Bachelor/Master thesis writing | `Lightweight Thesis/Thesis_CN.tex` | `Lightweight Thesis/lightweight-thesis.cls` |
 
 ## Quick Start
 
-1. Clone this repository:
+1. Clone the repository.
 
 ```bash
 git clone https://github.com/ruiyangzhou01/Lightweight-LaTeX.git
 cd Lightweight-LaTeX
 ```
 
-2. Open one of the theme folders and compile the main `.tex` file.
+2. Pick one template folder and open its entry `.tex` file.
 
-Recommended (if you use `latexmk`):
+3. Compile with XeLaTeX (recommended), ideally through `latexmk`.
+
+Example:
 
 ```bash
 cd "Lightweight Book"
-latexmk -xelatex -synctex=1 -interaction=nonstopmode Book_EN.tex
+latexmk -xelatex -interaction=nonstopmode -synctex=1 Book_EN.tex
 ```
 
-You can replace the folder and main file name for other themes:
+## Build Commands
 
-- `Lightweight Poster/Poster_EN.tex`
-- `Lightweight Slides/Slides_EN.tex`
-- `Lightweight Thesis/Thesis_CN.tex`
+| Template | Command |
+| --- | --- |
+| Book | `cd "Lightweight Book" && latexmk -xelatex Book_EN.tex` |
+| Poster | `cd "Lightweight Poster" && latexmk -xelatex Poster_EN.tex` |
+| Slides | `cd "Lightweight Slides" && latexmk -xelatex Slides_EN.tex` |
+| Thesis | `cd "Lightweight Thesis" && latexmk -xelatex Thesis_CN.tex` |
 
-3. If your editor does not use `latexmk`, compile with your preferred LaTeX toolchain (for example XeLaTeX + BibTeX/Biber as needed by the template).
+If `latexmk` is not available, compile manually:
+
+```bash
+xelatex <main-file>.tex
+bibtex <main-file>
+xelatex <main-file>.tex
+xelatex <main-file>.tex
+```
 
 ## Project Structure
 
 ```text
 Lightweight-LaTeX/
 |- Lightweight Book/
+|  |- Book_EN.tex
+|  |- lightweightbook.cls
+|  |- refs.bib
+|  `- fonts/
 |- Lightweight Poster/
+|  |- Poster_EN.tex
+|  |- lightweight-poster.cls
+|  |- refs.bib
+|  |- figures/
+|  `- fonts/
 |- Lightweight Slides/
+|  |- Slides_EN.tex
+|  |- lightweight-slides.cls
+|  |- refs.bib
+|  `- figures/
 |- Lightweight Thesis/
+|  |- Thesis_CN.tex
+|  |- lightweight-thesis.cls
+|  |- refs.bib
+|  `- figures/
 |- LICENSE
-`- README.md
+|- README.md
+|- README.zh-CN.md
+|- README.de.md
+|- README.es.md
+`- README.fr.md
 ```
 
-Each theme directory contains its own class file, bibliography file, and assets.
+## Customization Guide
 
-## Customization Tips
+1. Content: edit the template entry `.tex` file.
+2. Bibliography: update `refs.bib` in the same folder.
+3. Figures: replace files in `figures/`.
+4. Fonts and style: adjust options in the corresponding `.cls` file.
+5. Language/localization: duplicate and adapt the nearest template file.
 
-- Update text content in the main `.tex` file for each theme.
-- Replace images in each `figures/` directory.
-- Edit bibliography entries in `refs.bib`.
-- Adjust typography and layout in the corresponding `.cls` file.
+## Troubleshooting
 
-## Requirements
+- Missing fonts: install required fonts or switch to available system fonts in the class file.
+- Bibliography not showing: run the full build sequence (`xelatex -> bibtex -> xelatex -> xelatex`).
+- Undefined references: compile twice after bibliography/index updates.
+- TeX engine mismatch: use XeLaTeX for best compatibility.
 
-- A modern TeX distribution: TeX Live, MiKTeX, or MacTeX.
-- XeLaTeX is recommended for better font compatibility.
-- Optional: `latexmk` for easier build automation.
+## FAQ
 
-## Language Versions
+### Which template should I start with?
 
-- English: `README.md`
-- Chinese (Simplified): `README.zh-CN.md`
-- German: `README.de.md`
-- Spanish: `README.es.md`
-- French: `README.fr.md`
+Choose the closest use case first (book, poster, slides, thesis). It is usually faster than migrating later.
+
+### Can I use LuaLaTeX or pdfLaTeX?
+
+Possibly, but these themes are designed and tested primarily for XeLaTeX.
+
+### Can I combine modules from different templates?
+
+Yes. Copy the parts you need, then reconcile package options and class-level style definitions.
+
+## Contributing
+
+Contributions are welcome.
+
+- Open an issue for bug reports, template requests, or layout improvements.
+- Submit a pull request with a clear description and before/after PDF previews when possible.
+
+Project issues: <https://github.com/ruiyangzhou01/Lightweight-LaTeX/issues>
+
+## Citation
+
+If this repository helps your research or teaching materials, please cite it:
+
+```bibtex
+@misc{zhou_lightweight_latex_themes,
+	author = {Ruiyang Zhou},
+	title = {Lightweight LaTeX Themes},
+	year = {2026},
+	howpublished = {\url{https://github.com/ruiyangzhou01/Lightweight-LaTeX}}
+}
+```
 
 ## License
 

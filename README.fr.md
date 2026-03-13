@@ -2,86 +2,164 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [Deutsch](README.de.md) | [Español](README.es.md) | [Français](README.fr.md)
 
-Des modeles LaTeX minimalistes, elegants et pratiques pour la redaction academique et technique.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Made with LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-008080.svg)](https://www.latex-project.org/)
 
-Ce depot propose quatre themes legers pour demarrer rapidement des livres, posters, diapositives et theses.
+Une collection moderne de themes LaTeX legers pour livres, posters, diapositives et theses.
 
-## Themes inclus
+Ce depot vise des workflows academiques concrets : typographie lisible, personnalisation simple et structure de projet facile a maintenir.
 
-| Theme | Usage | Fichier principal |
-| --- | --- | --- |
-| Lightweight Book | Documents de type livre et textes longs | `Lightweight Book/Book_EN.tex` |
-| Lightweight Poster | Posters de conference et de recherche | `Lightweight Poster/Poster_EN.tex` |
-| Lightweight Slides | Diapositives de presentation | `Lightweight Slides/Slides_EN.tex` |
-| Lightweight Thesis | Redaction de memoires et theses | `Lightweight Thesis/Thesis_CN.tex` |
+## Sommaire
 
-## Pourquoi cette collection
+- [Points forts](#points-forts)
+- [Modeles](#modeles)
+- [Demarrage rapide](#demarrage-rapide)
+- [Commandes de compilation](#commandes-de-compilation)
+- [Structure du projet](#structure-du-projet)
+- [Guide de personnalisation](#guide-de-personnalisation)
+- [Depannage](#depannage)
+- [FAQ](#faq)
+- [Contribuer](#contribuer)
+- [Citation](#citation)
+- [Licence](#licence)
 
-- Des mises en page claires, axees sur la lisibilite.
-- Des fichiers de classe legers et simples a personnaliser.
-- Une structure organisee pour les polices, references et figures.
-- Des choix par defaut pratiques pour les workflows academiques.
+## Points forts
+
+- Modeles concus pour les cas d'usage academiques les plus frequents.
+- Fichiers de classe legers avec points de personnalisation explicites.
+- Bibliographie et ressources separees par modele.
+- Workflow recommande avec XeLaTeX pour une meilleure compatibilite des polices.
+
+## Modeles
+
+| Modele | Ideal pour | Fichier d'entree | Fichier de classe |
+| --- | --- | --- | --- |
+| Lightweight Book | Monographies, cours, documents longs | `Lightweight Book/Book_EN.tex` | `Lightweight Book/lightweightbook.cls` |
+| Lightweight Poster | Posters de conference et de recherche | `Lightweight Poster/Poster_EN.tex` | `Lightweight Poster/lightweight-poster.cls` |
+| Lightweight Slides | Presentations, soutenances, cours | `Lightweight Slides/Slides_EN.tex` | `Lightweight Slides/lightweight-slides.cls` |
+| Lightweight Thesis | Memoires et theses | `Lightweight Thesis/Thesis_CN.tex` | `Lightweight Thesis/lightweight-thesis.cls` |
 
 ## Demarrage rapide
 
-1. Clonez ce depot :
+1. Clonez le depot.
 
 ```bash
 git clone https://github.com/ruiyangzhou01/Lightweight-LaTeX.git
 cd Lightweight-LaTeX
 ```
 
-2. Ouvrez un dossier de theme et compilez le fichier principal `.tex`.
+2. Choisissez un modele et ouvrez son fichier `.tex` principal.
 
-Recommande (si vous utilisez `latexmk`) :
+3. Compilez avec XeLaTeX (de preference via `latexmk`).
+
+Exemple :
 
 ```bash
 cd "Lightweight Book"
-latexmk -xelatex -synctex=1 -interaction=nonstopmode Book_EN.tex
+latexmk -xelatex -interaction=nonstopmode -synctex=1 Book_EN.tex
 ```
 
-Pour les autres themes, remplacez par :
+## Commandes de compilation
 
-- `Lightweight Poster/Poster_EN.tex`
-- `Lightweight Slides/Slides_EN.tex`
-- `Lightweight Thesis/Thesis_CN.tex`
+| Modele | Commande |
+| --- | --- |
+| Book | `cd "Lightweight Book" && latexmk -xelatex Book_EN.tex` |
+| Poster | `cd "Lightweight Poster" && latexmk -xelatex Poster_EN.tex` |
+| Slides | `cd "Lightweight Slides" && latexmk -xelatex Slides_EN.tex` |
+| Thesis | `cd "Lightweight Thesis" && latexmk -xelatex Thesis_CN.tex` |
 
-3. Si votre editeur n'utilise pas `latexmk`, compilez avec votre chaine LaTeX preferee (par exemple XeLaTeX + BibTeX/Biber selon le modele).
+Si `latexmk` n'est pas disponible, utilisez la sequence manuelle :
+
+```bash
+xelatex <main-file>.tex
+bibtex <main-file>
+xelatex <main-file>.tex
+xelatex <main-file>.tex
+```
 
 ## Structure du projet
 
 ```text
 Lightweight-LaTeX/
 |- Lightweight Book/
+|  |- Book_EN.tex
+|  |- lightweightbook.cls
+|  |- refs.bib
+|  `- fonts/
 |- Lightweight Poster/
+|  |- Poster_EN.tex
+|  |- lightweight-poster.cls
+|  |- refs.bib
+|  |- figures/
+|  `- fonts/
 |- Lightweight Slides/
+|  |- Slides_EN.tex
+|  |- lightweight-slides.cls
+|  |- refs.bib
+|  `- figures/
 |- Lightweight Thesis/
+|  |- Thesis_CN.tex
+|  |- lightweight-thesis.cls
+|  |- refs.bib
+|  `- figures/
 |- LICENSE
-`- README.md
+|- README.md
+|- README.zh-CN.md
+|- README.de.md
+|- README.es.md
+`- README.fr.md
 ```
 
-Chaque dossier de theme contient son fichier de classe, sa bibliographie et ses ressources.
+## Guide de personnalisation
 
-## Conseils de personnalisation
+1. Contenu : modifiez le fichier `.tex` d'entree.
+2. Bibliographie : mettez a jour `refs.bib` dans chaque dossier.
+3. Images : remplacez les ressources dans `figures/`.
+4. Style et typographie : ajustez les options dans le fichier `.cls`.
+5. Multilingue : dupliquez le modele le plus proche puis adaptez.
 
-- Mettez a jour le contenu dans le fichier principal `.tex` de chaque theme.
-- Remplacez les images dans chaque dossier `figures/`.
-- Modifiez les references dans `refs.bib`.
-- Ajustez la typographie et la mise en page dans le fichier `.cls` correspondant.
+## Depannage
 
-## Prerequis
+- Polices manquantes : installez les polices necessaires ou utilisez des polices systeme.
+- Bibliographie absente : lancez `xelatex -> bibtex -> xelatex -> xelatex`.
+- References non resolues : recompilez au moins deux fois apres modification.
+- Probleme de moteur : preferez XeLaTeX.
 
-- Une distribution TeX moderne : TeX Live, MiKTeX ou MacTeX.
-- XeLaTeX est recommande pour une meilleure compatibilite des polices.
-- Optionnel : `latexmk` pour automatiser la compilation.
+## FAQ
 
-## Versions linguistiques
+### Par quel modele commencer ?
 
-- English: `README.md`
-- Chinese (Simplified): `README.zh-CN.md`
-- Deutsch: `README.de.md`
-- Español: `README.es.md`
-- Français: `README.fr.md`
+Choisissez d'abord le modele le plus proche de votre objectif final (livre, poster, slides, these).
+
+### Puis-je utiliser LuaLaTeX ou pdfLaTeX ?
+
+C'est possible, mais ces themes sont surtout concus et testes pour XeLaTeX.
+
+### Puis-je combiner des modules de plusieurs modeles ?
+
+Oui. Copiez ce dont vous avez besoin puis harmonisez les options des packages et les definitions de style.
+
+## Contribuer
+
+Les contributions sont les bienvenues.
+
+- Ouvrez une issue pour signaler un bug ou proposer une amelioration.
+- Ouvrez une pull request avec une description claire et, si possible, un comparatif PDF avant/apres.
+
+Issues du projet : <https://github.com/ruiyangzhou01/Lightweight-LaTeX/issues>
+
+## Citation
+
+Si ce depot vous aide en recherche ou en enseignement, vous pouvez le citer ainsi :
+
+```bibtex
+@misc{zhou_lightweight_latex_themes,
+	author = {Ruiyang Zhou},
+	title = {Lightweight LaTeX Themes},
+	year = {2026},
+	howpublished = {\url{https://github.com/ruiyangzhou01/Lightweight-LaTeX}}
+}
+```
 
 ## Licence
 

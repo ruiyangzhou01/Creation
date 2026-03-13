@@ -2,87 +2,165 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [Deutsch](README.de.md) | [Español](README.es.md) | [Français](README.fr.md)
 
-Minimale, elegante und praktische LaTeX-Vorlagen fur wissenschaftliches und technisches Schreiben.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Made with LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-008080.svg)](https://www.latex-project.org/)
 
-Dieses Repository stellt vier leichtgewichtige Themen bereit, die als Ausgangspunkt fur Bucher, Poster, Folien und Abschlussarbeiten dienen.
+Eine moderne Sammlung leichtgewichtiger LaTeX-Themen fur Bucher, Poster, Folien und Abschlussarbeiten.
 
-## Enthaltene Themen
+Dieses Repository ist auf den akademischen Alltag ausgerichtet: klare Typografie, einfache Anpassung und eine Projektstruktur, die langfristig wartbar bleibt.
 
-| Thema | Zweck | Hauptdatei |
-| --- | --- | --- |
-| Lightweight Book | Buchartige Dokumente und lange Texte | `Lightweight Book/Book_EN.tex` |
-| Lightweight Poster | Konferenz- und Forschungsposter | `Lightweight Poster/Poster_EN.tex` |
-| Lightweight Slides | Präsentationsfolien | `Lightweight Slides/Slides_EN.tex` |
-| Lightweight Thesis | Thesis- und Dissertationsschreiben | `Lightweight Thesis/Thesis_CN.tex` |
+## Inhaltsverzeichnis
 
-## Warum diese Sammlung
+- [Highlights](#highlights)
+- [Vorlagen](#vorlagen)
+- [Schnellstart](#schnellstart)
+- [Build-Befehle](#build-befehle)
+- [Projektstruktur](#projektstruktur)
+- [Anpassungsleitfaden](#anpassungsleitfaden)
+- [Fehlerbehebung](#fehlerbehebung)
+- [FAQ](#faq)
+- [Mitwirken](#mitwirken)
+- [Zitieren](#zitieren)
+- [Lizenz](#lizenz)
 
-- Klare Layouts mit Fokus auf Lesbarkeit.
-- Leichtgewichtige Klassen-Dateien mit einfacher Anpassung.
-- Übersichtliche Struktur fur Schriften, Literatur und Abbildungen.
-- Praktische Standardeinstellungen fur akademische Workflows.
+## Highlights
+
+- Speziell fur typische akademische Anwendungsfalle entwickelt.
+- Leichtgewichtige Klassen-Dateien mit klaren Anpassungspunkten.
+- Literatur und Assets sind pro Vorlage sauber getrennt.
+- XeLaTeX-first fur moderne Schriftunterstutzung.
+
+## Vorlagen
+
+| Vorlage | Geeignet fur | Einstiegsdatei | Klassen-Datei |
+| --- | --- | --- | --- |
+| Lightweight Book | Monografien, Skripte, lange Texte | `Lightweight Book/Book_EN.tex` | `Lightweight Book/lightweightbook.cls` |
+| Lightweight Poster | Konferenz- und Forschungsposter | `Lightweight Poster/Poster_EN.tex` | `Lightweight Poster/lightweight-poster.cls` |
+| Lightweight Slides | Vortrage, Verteidigungen, Lehrfolien | `Lightweight Slides/Slides_EN.tex` | `Lightweight Slides/lightweight-slides.cls` |
+| Lightweight Thesis | Bachelor-/Master-/Dissertationsarbeiten | `Lightweight Thesis/Thesis_CN.tex` | `Lightweight Thesis/lightweight-thesis.cls` |
 
 ## Schnellstart
 
-1. Repository klonen:
+1. Repository klonen.
 
 ```bash
 git clone https://github.com/ruiyangzhou01/Lightweight-LaTeX.git
 cd Lightweight-LaTeX
 ```
 
-2. Einen Themenordner offnen und die jeweilige Haupt-`.tex`-Datei kompilieren.
+2. Eine Vorlage auswahlen und die Einstiegs-`.tex`-Datei offnen.
 
-Empfohlen (mit `latexmk`):
+3. Mit XeLaTeX kompilieren (empfohlen uber `latexmk`).
+
+Beispiel:
 
 ```bash
 cd "Lightweight Book"
-latexmk -xelatex -synctex=1 -interaction=nonstopmode Book_EN.tex
+latexmk -xelatex -interaction=nonstopmode -synctex=1 Book_EN.tex
 ```
 
-Fur die anderen Themen die Datei entsprechend ersetzen:
+## Build-Befehle
 
-- `Lightweight Poster/Poster_EN.tex`
-- `Lightweight Slides/Slides_EN.tex`
-- `Lightweight Thesis/Thesis_CN.tex`
+| Vorlage | Befehl |
+| --- | --- |
+| Book | `cd "Lightweight Book" && latexmk -xelatex Book_EN.tex` |
+| Poster | `cd "Lightweight Poster" && latexmk -xelatex Poster_EN.tex` |
+| Slides | `cd "Lightweight Slides" && latexmk -xelatex Slides_EN.tex` |
+| Thesis | `cd "Lightweight Thesis" && latexmk -xelatex Thesis_CN.tex` |
 
-3. Wenn dein Editor `latexmk` nicht verwendet, nutze deine bevorzugte LaTeX-Toolchain (z. B. XeLaTeX + BibTeX/Biber je nach Vorlage).
+Wenn `latexmk` nicht verfugbar ist, manuell kompilieren:
+
+```bash
+xelatex <main-file>.tex
+bibtex <main-file>
+xelatex <main-file>.tex
+xelatex <main-file>.tex
+```
 
 ## Projektstruktur
 
 ```text
 Lightweight-LaTeX/
 |- Lightweight Book/
+|  |- Book_EN.tex
+|  |- lightweightbook.cls
+|  |- refs.bib
+|  `- fonts/
 |- Lightweight Poster/
+|  |- Poster_EN.tex
+|  |- lightweight-poster.cls
+|  |- refs.bib
+|  |- figures/
+|  `- fonts/
 |- Lightweight Slides/
+|  |- Slides_EN.tex
+|  |- lightweight-slides.cls
+|  |- refs.bib
+|  `- figures/
 |- Lightweight Thesis/
+|  |- Thesis_CN.tex
+|  |- lightweight-thesis.cls
+|  |- refs.bib
+|  `- figures/
 |- LICENSE
-`- README.md
+|- README.md
+|- README.zh-CN.md
+|- README.de.md
+|- README.es.md
+`- README.fr.md
 ```
 
-Jeder Themenordner enthält eigene Klassen-Dateien, Literaturdateien und Assets.
+## Anpassungsleitfaden
 
-## Anpassungstipps
+1. Inhalt: Einstiegs-`.tex`-Datei bearbeiten.
+2. Literatur: `refs.bib` im jeweiligen Ordner aktualisieren.
+3. Abbildungen: Dateien in `figures/` ersetzen.
+4. Layout und Typografie: Parameter in der passenden `.cls`-Datei anpassen.
+5. Mehrsprachigkeit: naheliegende Vorlage kopieren und lokalisieren.
 
-- Inhalte in der jeweiligen Haupt-`.tex`-Datei anpassen.
-- Bilder in den `figures/`-Ordnern ersetzen.
-- Literaturdaten in `refs.bib` pflegen.
-- Typografie und Layout in den zugehörigen `.cls`-Dateien einstellen.
+## Fehlerbehebung
 
-## Voraussetzungen
+- Fehlende Schriften: Schriften installieren oder in der Klassen-Datei auf Systemschriften umstellen.
+- Literatur fehlt: komplette Reihenfolge ausfuhren (`xelatex -> bibtex -> xelatex -> xelatex`).
+- Referenzen unresolved: nach Anderungen mindestens zweimal neu kompilieren.
+- Engine-Probleme: bevorzugt XeLaTeX verwenden.
 
-- Eine moderne TeX-Distribution: TeX Live, MiKTeX oder MacTeX.
-- XeLaTeX wird fur bessere Schriftkompatibilität empfohlen.
-- Optional: `latexmk` fur einfachere Build-Automatisierung.
+## FAQ
 
-## Sprachversionen
+### Mit welcher Vorlage sollte ich beginnen?
 
-- English: `README.md`
-- Chinese (Simplified): `README.zh-CN.md`
-- Deutsch: `README.de.md`
-- Español: `README.es.md`
-- Français: `README.fr.md`
+Am besten mit der Vorlage, die deinem Ziel am nachsten kommt (Buch, Poster, Folien, Thesis).
+
+### Kann ich LuaLaTeX oder pdfLaTeX verwenden?
+
+Moglich, aber die Vorlagen sind primar fur XeLaTeX konzipiert und getestet.
+
+### Lassen sich Module zwischen Vorlagen kombinieren?
+
+Ja. Achte dabei auf konsistente Paketoptionen und Klassen-Definitionen.
+
+## Mitwirken
+
+Beitrage sind willkommen.
+
+- Erstelle ein Issue fur Bugs, Feature-Wunsche oder Layout-Verbesserungen.
+- Sende einen Pull Request mit klarer Beschreibung und nach Moglichkeit PDF-Vergleich.
+
+Issues: <https://github.com/ruiyangzhou01/Lightweight-LaTeX/issues>
+
+## Zitieren
+
+Wenn dieses Repository fur Forschung oder Lehre hilfreich ist, kannst du es so zitieren:
+
+```bibtex
+@misc{zhou_lightweight_latex_themes,
+	author = {Ruiyang Zhou},
+	title = {Lightweight LaTeX Themes},
+	year = {2026},
+	howpublished = {\url{https://github.com/ruiyangzhou01/Lightweight-LaTeX}}
+}
+```
 
 ## Lizenz
 
-Dieses Projekt ist unter der MIT-Lizenz veröffentlicht. Details in `LICENSE`.
+Dieses Projekt steht unter der MIT-Lizenz. Details in `LICENSE`.
