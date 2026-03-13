@@ -2,7 +2,7 @@
 % !TeX program = xelatex
 % !TeX spellcheck = zh_cn
 
-\documentclass[uft8]{lightweight-thesis}
+\documentclass[utf8]{lightweight-thesis}
 
 %-----------------------------------------------------------------------
 
@@ -11,20 +11,20 @@
     \frontmatter
 
     \title{%
-        标题行 1 \\[18pt]
-        标题行 2
+        基于深度学习的 \\[18pt]
+        图像识别系统研究
     }{%
-        Title Line 1\\[18pt]
-        Title Line 2
+        Research on Image Recognition\\[18pt]
+        Systems Based on Deep Learning
     }
 
-    \author{作者}{Author}
+    \author{张三}{San Zhang}
 
-    \coursename{课程名}{Course name}
-    \advisor{任课教师}{Prof. XXXX}
-    \school{学院}{Department}
-    \major{专业}{Major}
-    \studentnumber{学号}
+    \coursename{计算机科学导论}{Introduction to Computer Science}
+    \advisor{李四 教授}{Prof. Si Li}
+    \school{计算机学院}{Department of Computer Science}
+    \major{计算机科学与技术}{Computer Science and Technology}
+    \studentnumber{2022000001}
 
     \date{}
 
@@ -33,27 +33,19 @@
 
     % abstract
     \begin{abstract_cn}
-        \blindtext
+        本文设计并实现了一个基于深度卷积神经网络（CNN）的高效图像分类系统。该系统利用迁移学习方法加速模型收敛，并结合数据增强技术提升了模型在复杂场景下的泛化能力。经多组对比实验证明，该方法在准确率和推理速度上均优于传统机器学习方法，具有重要的理论研究和实际应用价值。
     \end{abstract_cn}
 
     \begin{keywords_cn}
-        关键词；
-        关键词；
-        关键词；
-        关键词；
-        关键词
+        深度学习；图像识别；卷积神经网络；迁移学习；数据增强
     \end{keywords_cn}
 
     \begin{abstract_en}
-        \blindtext
+        This thesis designs and implements an efficient image classification system based on Deep Convolutional Neural Networks (CNN). The system utilizes transfer learning methods to accelerate model convergence and combines data augmentation techniques to enhance the model's generalization ability in complex scenarios. Extensive comparative experiments demonstrate that this method outperforms traditional machine learning approaches.
     \end{abstract_en}
 
     \begin{keywords_en}
-        keyword;
-        keyword;
-        keyword;
-        keyword;
-        keyword
+        Deep Learning; Image Recognition; CNN; Transfer Learning; Data Augmentation
     \end{keywords_en}
 
     % table of contents
@@ -64,86 +56,93 @@
     \mainmatter
 
 
-    \chapter{章节名}
+    \chapter{深度学习与图像识别基础}
     \label{ch:chapter_1}
 
-    \blindtext~\citep{nguyen2021adaptive}
+    近年来，深度学习技术在计算机视觉领域取得了突破性进展。与传统的依赖于手工设计特征的机器学习算法相比，基于多层神经网络的模型能够从大量数据中自动提取高层语义特征~\citep{nguyen2021adaptive}。
 
 
-    \section{第一节}
+    \section{模型结构参数}
+
+    模型的核心结构包含多个卷积层和池化层，以提取多尺度空间特征。具体选用的超参数设置和相关物理量参考整理如下：
 
     \begin{table}[H]
         \label{tab:para-des}
         \centering
         \begin{threeparttable}[c]
-		\caption{模型的参数及其描述}
+		\caption{卷积神经网络模型的超参数及其描述}
         \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}cllrrl@{}}
 			\toprule
             \multicolumn{1}{l}{参数} & \multicolumn{1}{l}{含义}       & \multicolumn{1}{l}{单位\tnote{f}}    & \multicolumn{1}{c}{值}                  & \multicolumn{1}{c}{范围}                     & 来源                                                 \\
             \midrule
-            $T$                & 时间                          & d                               & 1                     & (0, 1)                  & ~\citep{patel2023vision}                  \\
+            $\alpha$           & 学习率                        & -                               & 0.001                 & (1e-5, 0.1)             & ~\citep{nguyen2021adaptive}               \\
+            $B$                & 批大小 (Batch Size)           & \text{个}                        & 64                    & (16, 256)               & ~\citep{patel2023vision}                  \\
             \bottomrule
         \end{tabular*}
         \begin{tablenotes}
             \footnotesize
-            \item[f]{d表示天。}
+            \item[f]{`-` 表示无单位。}
         \end{tablenotes}
         \end{threeparttable}
     \end{table}
 
 
-    \section{第二节}
+    \section{网络架构概览}
+
+    在此部分，我们将展示本研究所提议的深度网络架构的概念简图。请参阅图\ref{fig:logo}了解系统整体数据流和特征提取模块组成。
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{logo}
-        \caption{Logo}
+        \caption{本研究提出的简化网络架构示意图}
         \label{fig:logo}
     \end{figure}
 
 
-    \section{第三节}
+    \section{目标函数与优化}
+
+    为提高分类性能，我们选用了带有正则化项的交叉熵损失函数进行监督训练。前向传播和最终预测的定义如公式~\ref{eq:model} 所示：
 
     \begin{equation}
         \label{eq:model}
         \begin{aligned}
-            \hat{y} & = f(x; \theta) \\
-            \hat{y} & = f(x; \theta)
+            z^{(l+1)} &= W^{(l)} a^{(l)} + b^{(l)} \\
+            a^{(l+1)} &= \sigma(z^{(l+1)})
         \end{aligned}
     \end{equation}
 
 
-    \chapter{章节名}
+    \chapter{实验设计与结果分析}
     \label{ch:chapter_2}
 
-    \blindtext
+    为了验证所提出模型的有效性，我们在标准的图像分类数据集上进行了充分的实验。本章详细介绍了实验的数据预处理流程、环境配置以及对比实验的分析结果。
 
 
-    \section{第一节}
+    \section{数据集与预处理}
 
-    \blindtext
+    我们选用了公开的图像分类数据集，并按 8:2 的比例随机划分为训练集与测试集。所有的输入图像在进入网络前，均被归一化处理。
 
 
-    \section{第二节}
+    \section{性能评估与对比}
 
-    \blindtext
+    对比实验表明，采用迁移学习的方法能显著降低训练收敛所需的时间，并在测试集上达到了领先的准确率指标。
 
 
     % misc
     \begin{conclusion}
-        \blindtext
+        本文对图像分类问题进行了系统的研究，提出了基于卷积神经网络的改进模型。未来的工作可以进一步探索模型在多模态数据中的应用。
     \end{conclusion}
 
     \begin{innovation}
-        \blindtext
+        本项目结合了预训练模型的先验知识与任务特有的数据增强策略，通过理论推导与实验验证，实现了更优的网络参数优化。
     \end{innovation}
 
     \begin{discussion}
-        \blindtext
+        受限于计算资源，本研究未能在超大规模的数据集上进行全面训练。接下来的研究可以考虑引入分布式训练框架以拓展模型的适用范围。
     \end{discussion}
 
     \begin{acknowledgement}
-        \blindtext
+        在此，我要特别感谢我的导师李四教授在学术和生活上给予的无私帮助。同时，也感谢实验室的同学们在项目实施过程中的讨论与合作。
     \end{acknowledgement}
 
     \begin{references}
@@ -155,22 +154,22 @@
     \thesisappendix
 
 
-    \chapter{第一章}
+    \chapter{实验代码列表}
 
 
-    \blindtext
+    为了实现可复现的研究，本研究在附录中提供了核心算法与数据处理代码块。
 
 
-    \section{第一节}
+    \section{数据增强片段}
 
 
-    \blindtext
+    数据增强主要基于 `Albumentations` 库，包括随机截取、水平翻转及亮度调节等功能。
 
 
-    \section{第二节}
+    \section{训练脚本片段}
 
 
-    \blindtext
+    在训练过程中，使用了验证集的早停机制来防止模型过拟合，并记录了每轮次的测试准确率与损失。
 
     % Add-ons
     % \begingroup
